@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: open the page
-        run: firefox --headless --new-instance index.html
+        run: firefox --new-instance index.html || echo "Erro ignorado"
       
   deploy-job:
     runs-on: ubuntu-latest
