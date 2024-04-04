@@ -13,16 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: verifica se firefox está istalado
-        run: firefox -v
+      -  run: python3 -v
       
   test-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: open the page
-        run: firefox --new-instance index.html || echo "Erro ignorado"
+      - uses: actions/checkout@v3
+      - run: python3 hello-world.py
       
   deploy-job:
     runs-on: ubuntu-latest
