@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: open the page
-        run: firefox --new-instance index.html
+        run: firefox --headless --new-instance index.html
       
   deploy-job:
     runs-on: ubuntu-latest
