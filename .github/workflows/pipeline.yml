@@ -19,10 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run : sudo apt-get install -y firefox xvfb
-      - run: Xvfb :99 -screen 0 1920x1080x24 -ac +extension GLX +render -noreset &
-      - run: export DISPLAY=:99
-      - run: firefox --headless --disable-gpu --no-sandbox index.html
+      - run: firefox index.html
 
   deploy-job:
     runs-on: ubuntu-latest
