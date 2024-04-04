@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run : export DISPLAY=:99 firefox --headless --no-sandbox index.html
+      - run : firefox --headless index.html
 
   deploy-job:
     runs-on: ubuntu-latest
