@@ -13,19 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: sudo apt-get update && sudo apt-get install firefox xvfb -y
-      - run: sudo apt-get install -y libgtk-3-0 libdbus-glib-1-2
-      
+
+      - name: Install dependencies
+        run: sudo apt update
+
+      - name: Install dependencies
+        run: sudo apt install -y firefox
       
   test-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          export MOZ_DISABLE_OOP_PLUGINS=1
-          export MOZ_DISABLE_GPU=1
-      - run: xvfb-run --auto-servernum firefox --headless --no-remote --disable-gpu --disable-gl-drawing --disable-gl-renderer --disable-webgl index.html
-
+      - name: open the page
+        run: firefox --new-instance index.html
+      
   deploy-job:
     runs-on: ubuntu-latest
     steps:
