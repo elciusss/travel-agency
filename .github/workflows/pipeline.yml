@@ -20,9 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: export MOZ_DISABLE_OOP_PLUGINS=1
+      - run: |
+          export MOZ_DISABLE_OOP_PLUGINS=1
           export MOZ_DISABLE_GPU=1
-          xvfb-run --auto-servernum firefox --headless --no-remote --disable-gpu --disable-gl-drawing --disable-gl-renderer --disable-webgl index.html
+      - run: xvfb-run --auto-servernum firefox --headless --no-remote --disable-gpu --disable-gl-drawing --disable-gl-renderer --disable-webgl index.html
 
   deploy-job:
     runs-on: ubuntu-latest
