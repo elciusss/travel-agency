@@ -12,14 +12,14 @@ jobs:
   build-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
-      - run: npm install puppeteer
+      - uses: actions/checkout@v3
+      - run: sudo apt-get update && sudo apt-get install firefox -y
       
   test-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: node teste.js
+      - run: firefox --headless index.html
 
   deploy-job:
     runs-on: ubuntu-latest
