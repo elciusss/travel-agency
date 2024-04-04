@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: firefoxx --version
+      - name: verifica se firefox está istalado
+        run: firefoxx -v
       
   test-job:
     runs-on: ubuntu-latest
