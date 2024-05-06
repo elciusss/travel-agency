@@ -45,7 +45,7 @@ jobs:
           pip install --upgrade dependency-check
 
       - name: Run security tests
-        run: python security_test.py 
+        run: python security-test.py 
     
       - name: Run OWASP Dependency-Check
         run: path/to/dependency-check/bin/dependency-check.sh --project "travel-agency" --scan 
