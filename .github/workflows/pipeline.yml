@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      -  run: python3 -v
+      - run: python3 -v
       
   test-job:
     runs-on: ubuntu-latest
@@ -26,6 +26,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run : echo "finalizado"
-  
+
+  security-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade bandit
+          pip install --upgrade dependency-check
+
+      - name: Run security tests
+        run: python security-test.py 
     
-  
+      - name: Run OWASP Dependency-Check
+        run: path/to/dependency-check/bin/dependency-check.sh --project "travel-agency" --scan 
