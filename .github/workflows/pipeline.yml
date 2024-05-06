@@ -26,6 +26,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run : echo "finalizado"
-  
+
+security-test:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: pip install --upgrade pip
+    - run: pip install --upgrade bandit
+    - run: pip install --upgrade dependency-check
+
+    - name: Run security tests
+      run: python security_test.py 
     
   
